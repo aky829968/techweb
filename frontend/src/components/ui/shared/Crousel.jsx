@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const Crousel = () => {
   const slides = [
-    "https://via.placeholder.com/800x400?text=Slide+1",
-    "https://via.placeholder.com/800x400?text=Slide+2",
-    "https://via.placeholder.com/800x400?text=Slide+3",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxC_GSUSYxnaHu81Y1sqcAwqQvDSAzJkTsuw&s",
+    "https://thumbs.dreamstime.com/b/life-coaching-logo-design-personality-development-training-support-template-business-education-brand-ideas-207897942.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWclvT7kz36hXLdAMSjrfrlEUb3FCxh4zCtQ&s",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,7 +19,7 @@ const Crousel = () => {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
+    <div className="relative w-full max-w-4xl h-96 mx-auto overflow-hidden">
       {/* Slides */}
       <div
         className="flex transition-transform duration-1000 ease-in-out"
@@ -30,7 +30,7 @@ const Crousel = () => {
             key={index}
             src={slide}
             alt={`Slide ${index + 1}`}
-            className="w-full flex-shrink-0"
+            className="w-full h-96 flex-shrink-0 object-fit"
           />
         ))}
       </div>

@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { Clock, LocateIcon, Mail, MapIcon, MapPin, Phone } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
   const [input, setInput] = useState({
@@ -19,15 +19,15 @@ const Contact = () => {
   const handleQuery = async () => {
     try {
       const res = await axios.post("http://localhost:3000/user/query", input);
-      let data=res.data;
-      if(data.success){
-        console.log("email send successfully")
+      let data = res.data;
+      if (data.success) {
+        console.log("email send successfully");
         setInput({
           name: "",
           email: "",
           phone: "",
           query: "",
-        })
+        });
       }
     } catch (error) {}
   };
@@ -75,10 +75,15 @@ const Contact = () => {
       <hr className="h-1 bg-slate-300" />
       <form className="border-2 rounded px-3 py-2 mt-6">
         <Label className="text-lg">Name(Required)</Label>
-        <Input  onChange={handleInput} name="name" required className="border-2 border-slate-600" />
+        <Input
+          onChange={handleInput}
+          name="name"
+          required
+          className="border-2 border-slate-600"
+        />
         <Label className="text-lg">Email(Required)</Label>
         <Input
-        onChange={handleInput}
+          onChange={handleInput}
           name="email"
           type="email"
           required
@@ -86,7 +91,7 @@ const Contact = () => {
         />
         <Label className="text-lg">Phone No.(Required)</Label>
         <Input
-         onChange={handleInput}
+          onChange={handleInput}
           name="phone"
           type="number"
           required
@@ -94,12 +99,14 @@ const Contact = () => {
         />
         <Label className="text-lg">Questions(Required)</Label>
         <textarea
-         onChange={handleInput}
+          onChange={handleInput}
           name="query"
           required
           className="border-2 block w-full border-slate-600"
         />
-        <Button onClick={handleQuery} className="bg-blue-600 mt-2 px-5">Submit</Button>
+        <Button onClick={handleQuery} className="bg-blue-600 mt-2 px-5">
+          Submit
+        </Button>
       </form>
       <div>
         <iframe></iframe>
