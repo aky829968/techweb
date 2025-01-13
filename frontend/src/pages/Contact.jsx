@@ -18,7 +18,7 @@ const Contact = () => {
   };
   const handleQuery = async () => {
     try {
-      const res = await axios.post("http://localhost:3000/user/query", input);
+      const res = await axios.post(`${url}/user/query`, input);
       let data = res.data;
       if (data.success) {
         console.log("email send successfully");

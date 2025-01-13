@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieparser());
 const port = process.env.PORT || 4000;
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://frontend-9e7q.onrender.com/",
   credentials: true,
 };
 app.use(cors(corsOptions));

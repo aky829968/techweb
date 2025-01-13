@@ -37,12 +37,11 @@ const AdminCourses = () => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   const handleSubmit = async () => {
+    const url = "https://techweb-1.onrender.com";
     try {
-      const res = await axios.post(
-        "http://localhost:3000/course/create-course",
-        input,
-        { withCredentials: true }
-      );
+      const res = await axios.post(`${url}/course/create-course`, input, {
+        withCredentials: true,
+      });
       const data = res.data;
       if (data.success) {
         console.log(data);
@@ -55,7 +54,7 @@ const AdminCourses = () => {
   const getAllCourse = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/course/getallcourse",
+        `${url}/course/getallcourse`,
 
         { withCredentials: true }
       );
@@ -71,7 +70,7 @@ const AdminCourses = () => {
   const deleteCourse = async (id) => {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/course/delete-course/${id}`,
+        `${url}/course/delete-course/${id}`,
 
         { withCredentials: true }
       );

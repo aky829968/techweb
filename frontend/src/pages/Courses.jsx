@@ -7,9 +7,10 @@ const Courses = () => {
   // const { courses } = useContext(AdminContext);
   const [courses, setCourses] = useState([]);
   const getAllCourse = async () => {
+     const url="https://techweb-1.onrender.com"
     try {
       const res = await axios.get(
-        "http://localhost:3000/course/getallcourse",
+        `${url}/course/getallcourse`,
 
         { withCredentials: true }
       );

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const AdminState = (props) => {
   //   const navigate = useNavigate();
+  const url = "https://techweb-1.onrender.com";
   const isAdmin = JSON.parse(localStorage.getItem("admin"));
   const [admin, setAdmin] = useState({
     login: isAdmin ? true : false,
@@ -15,7 +16,7 @@ const AdminState = (props) => {
 
   const login = async (input) => {
     try {
-      const res = await axios.post("http://localhost:3000/admin/login", input, {
+      const res = await axios.post(`${url}/admin/login`, input, {
         withCredentials: true,
       });
       let data = res.data;
@@ -31,7 +32,7 @@ const AdminState = (props) => {
   };
   const logout = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/admin/logout", {
+      const res = await axios.get(`${url}/admin/logout`, {
         withCredentials: true,
       });
       const data = res.data;
